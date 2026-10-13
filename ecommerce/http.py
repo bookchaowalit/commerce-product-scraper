@@ -21,7 +21,7 @@ from typing import Callable
 
 import httpx
 
-USER_AGENT = "book-ecommerce-scraping/1.0 (+https://github.com/bookchaowalit/book-ecommerce-scraping)"
+USER_AGENT = "book-ecommerce-scraping/1.0 (+https://github.com/bookchaowalit/commerce-product-scraper)"
 HTML_ACCEPT = "text/html,application/xhtml+xml"
 DEFAULT_TIMEOUT = 30.0
 DEFAULT_ATTEMPTS = 3
