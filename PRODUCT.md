@@ -1,6 +1,6 @@
 # book-ecommerce-scraping — Product brief
 
-**Slug:** `bookchaowalit/book-ecommerce-scraping`  
+**Slug:** `bookchaowalit/commerce-product-scraper`  
 **Generated:** 2026-08-11 (bulk Book Dev closeout)  
 **Status:** collection adapter present; this repo can schedule Kaidee via `setup_cron.sh`
 
@@ -34,7 +34,7 @@ Tests live under `tests/` for Kaidee. Runtime collection remains scheduled by
 # book-ecommerce-scraping
 
 **Tier:** C / tool prototype (portfolio breadth, not interview flagship)  
-**Owner path:** `bookchaowalit/book-apps/tools/book-ecommerce-scraping`
+**Owner path:** `bookchaowalit/book-apps/tools/commerce-product-scraper`
 
 ## Purpose
 

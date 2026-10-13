@@ -1,7 +1,7 @@
 # book-ecommerce-scraping
 
 **Tier:** C / tool prototype (portfolio breadth, not interview flagship)  
-**Owner path:** `bookchaowalit/book-apps/tools/book-ecommerce-scraping`
+**Owner path:** `bookchaowalit/book-apps/tools/commerce-product-scraper`
 
 ## Purpose
 
