@@ -3,13 +3,15 @@
 **Tier:** C / tool prototype (portfolio breadth, not interview flagship)  
 **Owner path:** `bookchaowalit/book-apps/tools/book-ecommerce-scraping`
 
+> **Source terms (2026-10-15):** Kaidee was rejected by the owner; live collection and the cron below are not approved. Offline fixtures/tests only. See [Source terms decision](#source-terms-decision-2026-10-15).
+
 ## Purpose
 
 Bounded collection of public Thai marketplace listings (currently Kaidee classifieds).
 
 ## Entry points
 
-- `scripts/run_marketplace.py` -> `ecommerce/kaidee_scraper.py` (active, bounded Kaidee collector)
+- `scripts/run_marketplace.py` -> `ecommerce/kaidee_scraper.py` (Kaidee collector; live use not approved since 2026-10-15)
 
 The former `ecommerce/shopee_scraper.py` and `ecommerce/lazada_scraper.py` were
 removed in the 2026-09 upgrade pass. Despite their names, the first was a
@@ -28,8 +30,9 @@ Python
 ```bash
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
-python3 scripts/run_marketplace.py
-bash setup_cron.sh install   # optional; every 6 hours
+# Live Kaidee collection and cron are NOT approved (owner decision 2026-10-15):
+# python3 scripts/run_marketplace.py
+# bash setup_cron.sh install
 ```
 
 Kaidee is the only collector. Category/price filters are applied once, while
@@ -82,12 +85,12 @@ Tests replay `tests/fixtures/` and mock the HTTP layer; CI
 (clauses 4.3–4.5) prohibit scraper/crawler-style access and require written
 Kaidee permission to collect, record, reproduce or use listing and user/contact
 data. The 5-page/200-row bounds and two-second pacing do not supply that
-permission. Do not run `kaidee` live collection or install `setup_cron.sh`;
+permission. Do not run `scripts/run_marketplace.py` (job `kaidee_classifieds`) live or install `setup_cron.sh`; this is policy, not enforced in code;
 `marketplace.v1` stays non-approved and the coverage registry marks marketplace
 permission `blocked`. Offline synthetic parser fixtures and tests are unaffected.
 Reopening requires written Kaidee permission naming URLs, fields, retention,
 reuse and volume. This is an owner decision based on the published terms, not
-legal advice. Record: [architecture-docs `systems/ai-data/source-terms-decisions-2026-10-15.md`](https://github.com/bookchaowalit/architecture-docs/blob/main/systems/ai-data/source-terms-decisions-2026-10-15.md).
+legal advice. Record: architecture-docs `systems/ai-data/source-terms-decisions-2026-10-15.md` (private repository).
 Source: [Kaidee terms (TH)](https://support.kaidee.com/hc/th/articles/360000885847).
 
 ## Limitations (honest)
