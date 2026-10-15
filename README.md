@@ -76,6 +76,20 @@ Tests replay `tests/fixtures/` and mock the HTTP layer; CI
 - **Not** coupled to Solo Empire monorepo runtime. Nested Git repo; commit only inside this tree.
 - Never commit `.env`, cookies, session dumps, or scraped PII dumps to Git.
 
+## Source terms decision (2026-10-15)
+
+**Kaidee: rejected by the owner on 2026-10-15 (BOO-127).** Kaidee's Thai terms
+(clauses 4.3–4.5) prohibit scraper/crawler-style access and require written
+Kaidee permission to collect, record, reproduce or use listing and user/contact
+data. The 5-page/200-row bounds and two-second pacing do not supply that
+permission. Do not run `kaidee` live collection or install `setup_cron.sh`;
+`marketplace.v1` stays non-approved and the coverage registry marks marketplace
+permission `blocked`. Offline synthetic parser fixtures and tests are unaffected.
+Reopening requires written Kaidee permission naming URLs, fields, retention,
+reuse and volume. This is an owner decision based on the published terms, not
+legal advice. Record: [architecture-docs `systems/ai-data/source-terms-decisions-2026-10-15.md`](https://github.com/bookchaowalit/architecture-docs/blob/main/systems/ai-data/source-terms-decisions-2026-10-15.md).
+Source: [Kaidee terms (TH)](https://support.kaidee.com/hc/th/articles/360000885847).
+
 ## Limitations (honest)
 
 Marketplace ToS often forbid scraping. Treat as learning/prototype code only; no secrets; no mass commercial harvest claims.
