@@ -267,9 +267,7 @@ def listing_slices(payload: dict[str, Any]) -> dict[str, Any]:
     page_props = props.get("pageProps") if isinstance(props, dict) else None
     if not isinstance(page_props, dict):
         return {}
-    kept: dict[str, Any] = {
-        key: page_props[key] for key in LISTING_KEYS if isinstance(page_props.get(key), list)
-    }
+    kept: dict[str, Any] = {key: page_props[key] for key in LISTING_KEYS if isinstance(page_props.get(key), list)}
     homepage = page_props.get("homepageData")
     if isinstance(homepage, dict):
         home = {key: homepage[key] for key in HOMEPAGE_LISTING_KEYS if isinstance(homepage.get(key), list)}

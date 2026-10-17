@@ -121,9 +121,7 @@ class KaideeScraperTests(unittest.TestCase):
     def test_fetch_pages_spaces_requests(self):
         sleeps = []
         with patch("ecommerce.http.httpx.get", return_value=FakeResponse(self.html)) as get:
-            _raw, rows = fetch_pages(
-                ["https://www.kaidee.com/", "https://www.kaidee.com/c1-auto"], sleep=sleeps.append
-            )
+            _raw, rows = fetch_pages(["https://www.kaidee.com/", "https://www.kaidee.com/c1-auto"], sleep=sleeps.append)
         self.assertEqual(get.call_count, 2)
         self.assertEqual(sleeps, [2.0])
         self.assertEqual(len(rows), 2)

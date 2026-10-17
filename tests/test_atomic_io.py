@@ -17,7 +17,13 @@ from ecommerce.atomic_io import append_csv_atomic, write_text_atomic
 from ecommerce.kaidee_scraper import HISTORY_FIELDS, append_history, write_snapshot
 from run_marketplace import main as marketplace_main
 
-ROW = {"listing_id": "1", "title": "Camera, \"mint\"", "location": "Bang Kapi, \"BKK\"", "price_thb": 1500, "url": "https://www.kaidee.com/product-1"}
+ROW = {
+    "listing_id": "1",
+    "title": 'Camera, "mint"',
+    "location": 'Bang Kapi, "BKK"',
+    "price_thb": 1500,
+    "url": "https://www.kaidee.com/product-1",
+}
 
 
 def test_write_text_atomic_keeps_previous_file_when_replace_fails(tmp_path):
