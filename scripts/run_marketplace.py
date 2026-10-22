@@ -58,7 +58,14 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
     if args.output_dir.exists() and not args.output_dir.is_dir():
         parser.error(f"--output-dir is not a directory: {args.output_dir}")
-    results = asyncio.run(run_marketplace(args.output_dir, dry_run=args.dry_run))
+    if args.dry_run:
+        results = asyncio.run(run_marketplace(args.output_dir, dry_run=True))
+    else:
+        from ecommerce.observability import init_sentry, report_failures
+
+        sentry = init_sentry("run_marketplace")
+        results = asyncio.run(run_marketplace(args.output_dir))
+        report_failures(sentry, results)
     if args.json:
         print(json.dumps(results, ensure_ascii=False))
     return 1 if any("error" in result for result in results) else 0
