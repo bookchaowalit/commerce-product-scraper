@@ -62,7 +62,7 @@ it.
 | AC | Red (sha · command · failure) | Green |
 |---|---|---|
 | AC-01 | `d1c233f` · `python -m pytest -q tests/test_observability.py` · `AssertionError: []` / `assert 0 == 1` (no Sentry event for the failed job) | [CI 39713142955](https://github.com/bookchaowalit/commerce-product-scraper/actions/runs/39713142955) (success, 3.10 + 3.13, coverage gate 92) |
-| AC-06 | `7a647f6` · `python -m pytest -q tests/test_observability.py` · `KeyError: 'include_local_variables'` (init used SDK defaults: locals and exception text would be sent by the excepthook) | GREEN_CI_2 |
+| AC-06 | `7a647f6` · `python -m pytest -q tests/test_observability.py` · `KeyError: 'include_local_variables'` (init used SDK defaults: locals and exception text would be sent by the excepthook) | [CI 39755148770](https://github.com/bookchaowalit/commerce-product-scraper/actions/runs/39755148770) (success) |
 | AC-05 | none: written green as a guard (the snapshot already matched the contract) | [CI 39713142955](https://github.com/bookchaowalit/commerce-product-scraper/actions/runs/39713142955) (success, 3.10 + 3.13, coverage gate 92) |
 
 ## Schedule (planned replacement, D6)
