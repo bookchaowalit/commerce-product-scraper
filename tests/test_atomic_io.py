@@ -3,19 +3,15 @@
 import csv
 import io
 import json
-import sys
 from contextlib import redirect_stderr
-from pathlib import Path
 from unittest.mock import patch
 
 import pytest
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "scripts"))
 
 from ecommerce.atomic_io import append_csv_atomic, write_text_atomic
 from ecommerce.kaidee_scraper import HISTORY_FIELDS, append_history, write_snapshot
-from run_marketplace import main as marketplace_main
+from scripts.run_marketplace import main as marketplace_main
 
 ROW = {
     "listing_id": "1",

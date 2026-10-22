@@ -169,7 +169,7 @@ def _price_value(value: Any) -> float | None:
 def _finite_bound(value: float | str | None, name: str) -> float | None:
     if value in (None, ""):
         return None
-    number = float(value)  # type: ignore[arg-type]
+    number = float(value)
     if not math.isfinite(number):
         raise ValueError(f"{name} must be a finite number")
     return number

@@ -4,6 +4,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from typing import Any
 from unittest.mock import patch
 
 from ecommerce.kaidee_scraper import (
@@ -73,7 +74,7 @@ class KaideeScraperTests(unittest.TestCase):
             self.assertIn("pages", raw)
 
     def test_raw_capture_drops_seller_personal_data(self):
-        payload = {
+        payload: dict[str, Any] = {
             "props": {
                 "pageProps": {
                     "latestAds": [
@@ -119,7 +120,7 @@ class KaideeScraperTests(unittest.TestCase):
             parse_html("<html>no next data</html>")
 
     def test_fetch_pages_spaces_requests(self):
-        sleeps = []
+        sleeps: list[float] = []
         with patch("ecommerce.http.httpx.get", return_value=FakeResponse(self.html)) as get:
             _raw, rows = fetch_pages(["https://www.kaidee.com/", "https://www.kaidee.com/c1-auto"], sleep=sleeps.append)
         self.assertEqual(get.call_count, 2)
@@ -127,7 +128,7 @@ class KaideeScraperTests(unittest.TestCase):
         self.assertEqual(len(rows), 2)
 
     def test_raw_capture_keeps_only_listing_slices(self):
-        payload = {
+        payload: dict[str, Any] = {
             "buildId": "x",
             "props": {
                 "pageProps": {
