@@ -11,6 +11,7 @@ dependencies = [
     # Transitive floors (security): keep any resolution above published advisories.
     "anyio>=4.14.2",
     "idna>=3.15",
+    "certifi>=2026.10.19",  # PYSEC-2026-4320 / GHSA-6q48-6c7w-9gw2 (via httpx)
     # Error reporting for scheduled runs (ecommerce/observability.py); off without SENTRY_DSN.
     "sentry-sdk>=2.72,<3",
 ]
